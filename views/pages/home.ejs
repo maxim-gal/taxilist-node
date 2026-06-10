@@ -1,0 +1,30 @@
+<%- include('../partials/head') %>
+
+<div class="taxi-list">
+  <% if (taxis.length) { %>
+    <div class="list-header">
+      <span class="col-name">Название</span>
+      <span class="col-podacha">Подача</span>
+      <span class="col-cost">Стоимость</span>
+      <span class="col-class">Класс</span>
+      <span class="col-phone">Телефон</span>
+    </div>
+  <% } %>
+  <% taxis.forEach(taxi => { %>
+    <div class="list-row">
+      <span class="col-name"><a href="/taxi/<%= taxi.id %>"><%= taxi.name %></a></span>
+      <span class="col-podacha"><%= taxi.podacha || '' %></span>
+      <span class="col-cost"><%= taxi.cost || '' %></span>
+      <span class="col-class"><%= taxi.class || '' %></span>
+      <span class="col-phone">
+        <% if (taxi.phone) { %>
+          <a href="tel:<%= taxi.phone.replace(/[^+\d]/g, '') %>" class="btn-phone">
+            <i class="fas fa-phone-alt"></i> <%= taxi.phone %>
+          </a>
+        <% } %>
+      </span>
+    </div>
+  <% }) %>
+</div>
+
+<%- include('../partials/footer') %>

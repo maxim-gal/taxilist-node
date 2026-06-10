@@ -1,0 +1,25 @@
+<%- include('../partials/head') %>
+
+<article class="taxi-detail">
+  <h1><%= taxi.name %></h1>
+  <div class="detail-info">
+    <p><strong>Подача:</strong> <%= taxi.podacha %></p>
+    <p><strong>Стоимость:</strong> <%= taxi.cost %></p>
+    <p><strong>Класс:</strong> <%= taxi.class %></p>
+    <% if (taxi.phone) { %>
+      <p><strong>Телефон:</strong> <a href="tel:<%= taxi.phone.replace(/[^+\d]/g, '') %>"><%= taxi.phone %></a></p>
+      <a href="tel:<%= taxi.phone.replace(/[^+\d]/g, '') %>" class="btn-call">📞 Позвонить</a>
+    <% } %>
+    <div class="description">
+      <h3>Описание автопарка</h3>
+      <p><%= taxi.description %></p>
+    </div>
+    <div class="contacts">
+      <h3>Контакты</h3>
+      <p><%= taxi.contacts %></p>
+    </div>
+  </div>
+  <a href="/" class="back-link">← На главную</a>
+</article>
+
+<%- include('../partials/footer') %>

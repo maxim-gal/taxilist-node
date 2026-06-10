@@ -1,0 +1,90 @@
+<%- include('../partials/head') %>
+
+<h1>Админ-панель</h1>
+<p><a href="/admin/logout">Выйти</a></p>
+
+<!-- ===== Такси ===== -->
+<section>
+  <h2>Таксопарки</h2>
+  <form method="POST" action="/admin/taxi/add" class="admin-form add-form">
+    <h3>Добавить таксопарк</h3>
+    <input name="name" placeholder="Название" required>
+    <input name="podacha" placeholder="Подача">
+    <input name="cost" placeholder="Стоимость">
+    <input name="klass" placeholder="Класс">
+    <input name="phone" placeholder="Телефон">
+    <input name="description" placeholder="Описание автопарка">
+    <input name="contacts" placeholder="Контакты">
+    <button type="submit">Добавить</button>
+  </form>
+
+  <% if (taxis.length) { %>
+    <h3>Список таксопарков</h3>
+    <% taxis.forEach(taxi => { %>
+      <form method="POST" action="/admin/taxi/edit/<%= taxi.id %>" class="admin-form edit-form">
+        <input name="name" value="<%= taxi.name %>" required>
+        <input name="podacha" value="<%= taxi.podacha %>">
+        <input name="cost" value="<%= taxi.cost %>">
+        <input name="klass" value="<%= taxi.class %>">
+        <input name="phone" value="<%= taxi.phone %>">
+        <input name="description" value="<%= taxi.description %>">
+        <input name="contacts" value="<%= taxi.contacts %>">
+        <button type="submit">Сохранить</button>
+        <button form="delete-taxi-<%= taxi.id %>" formaction="/admin/taxi/delete/<%= taxi.id %>" class="btn-delete">Удалить</button>
+      </form>
+      <form id="delete-taxi-<%= taxi.id %>" method="POST" action="/admin/taxi/delete/<%= taxi.id %>" style="display:none;"></form>
+    <% }) %>
+  <% } %>
+</section>
+
+<!-- ===== Статьи ===== -->
+<section>
+  <h2>Статьи</h2>
+  <form method="POST" action="/admin/article/add" class="admin-form add-form">
+    <h3>Добавить статью</h3>
+    <input name="title" placeholder="Заголовок" required>
+    <input name="image_url" placeholder="URL картинки">
+    <textarea name="content" placeholder="Текст статьи"></textarea>
+    <button type="submit">Добавить</button>
+  </form>
+
+  <% if (articles.length) { %>
+    <h3>Список статей</h3>
+    <% articles.forEach(article => { %>
+      <form method="POST" action="/admin/article/edit/<%= article.id %>" class="admin-form edit-form">
+        <input name="title" value="<%= article.title %>" required>
+        <input name="image_url" value="<%= article.image_url %>">
+        <textarea name="content"><%= article.content %></textarea>
+        <button type="submit">Сохранить</button>
+        <button form="delete-article-<%= article.id %>" formaction="/admin/article/delete/<%= article.id %>" class="btn-delete">Удалить</button>
+      </form>
+      <form id="delete-article-<%= article.id %>" method="POST" action="/admin/article/delete/<%= article.id %>" style="display:none;"></form>
+    <% }) %>
+  <% } %>
+</section>
+
+<!-- ===== Настройки ===== -->
+<section>
+  <h2>Тексты «О проекте» и «Контакты»</h2>
+  <form method="POST" action="/admin/settings" class="admin-form edit-form">
+    <label>О проекте (текст):</label>
+    <textarea name="about_text"><%= settings.about_text %></textarea>
+
+    <label>Изображение для «О проекте» (URL):</label>
+    <input name="about_image" value="<%= settings.about_image || '' %>" placeholder="https://...">
+
+    <label>Контакты (текст):</label>
+    <textarea name="contacts_text"><%= settings.contacts_text %></textarea>
+
+    <label>Изображение для «Контакты» (URL):</label>
+    <input name="contacts_image" value="<%= settings.contacts_image || '' %>" placeholder="https://...">
+
+    <label>Email контактов:</label>
+    <input name="contacts_email" value="<%= settings.contacts_email %>">
+
+    <button type="submit">Сохранить настройки</button>
+  </form>
+</section>
+
+
+<%- include('../partials/footer') %>

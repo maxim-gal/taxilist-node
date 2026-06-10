@@ -1,0 +1,11 @@
+<%- include('../partials/head') %>
+
+<div class="content-block">
+  <h1>О проекте</h1>
+  <% if (typeof about_image !== 'undefined' && about_image) { %>
+    <img src="<%= about_image %>" alt="О проекте" class="content-image">
+  <% } %>
+  <p><%= about_text %></p>
+</div>
+
+<%- include('../partials/footer') %>

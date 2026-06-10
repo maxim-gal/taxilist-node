@@ -1,0 +1,14 @@
+<%- include('../partials/head') %>
+
+<article class="article-full">
+  <h1><%= article.title %></h1>
+  <% if (article.image_url) { %>
+    <img src="<%= article.image_url %>" alt="<%= article.title %>" class="article-image">
+  <% } %>
+  <div class="article-text">
+    <%= article.content %>
+  </div>
+  <a href="/articles" class="back-link">← Все статьи</a>
+</article>
+
+<%- include('../partials/footer') %>

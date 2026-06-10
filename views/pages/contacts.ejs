@@ -1,0 +1,12 @@
+<%- include('../partials/head') %>
+
+<div class="content-block">
+  <h1>Контакты</h1>
+  <% if (typeof contacts_image !== 'undefined' && contacts_image) { %>
+    <img src="<%= contacts_image %>" alt="Контакты" class="content-image">
+  <% } %>
+  <p><%= contacts_text %></p>
+  <p>Email: <a href="mailto:<%= contacts_email %>"><%= contacts_email %></a></p>
+</div>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+  background-color: #000000;
+  color: #E0E0E0;
+  line-height: 1.4;
+}
+
+a {
+  color: #E0E0E0;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #FFD700;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== Шапка ===== */
+.site-header {
+  text-align: center;
+  border-bottom: 1px solid #222;
+  padding: 16px 0 12px;
+  background-color: #000000;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.8rem;
+  font-weight: 800;
+  text-decoration: none;
+  color: #FFD700;
+}
+
+.logo i {
+  font-size: 2rem;
+  color: #FFD700;
+}
+
+/* ===== Компактный баннер ===== */
+.banner {
+  background: linear-gradient(97deg, #FFD700 0%, #F59A2F 100%);
+  color: #000000;
+  padding: 16px 20px;
+  margin: 16px 0 28px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.banner h1 {
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.banner p {
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+/* ===== Вертикальный список такси ===== */
+.taxi-list {
+  margin-bottom: 40px;
+}
+
+.taxi-list .list-header {
+  display: flex;
+  padding: 12px 0;
+  border-bottom: 1px solid #333;
+  color: #FFD700;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.taxi-list .list-row {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #222;
+  font-size: 0.95rem;
+}
+
+.taxi-list .list-row:last-child {
+  border-bottom: none;
+}
+
+.taxi-list .col-name {
+  flex: 2;
+  font-weight: 500;
+}
+
+.taxi-list .col-podacha,
+.taxi-list .col-cost,
+.taxi-list .col-class {
+  flex: 1.5;
+  color: #bbb;
+}
+
+.taxi-list .col-phone {
+  flex: 1.2;
+  text-align: center;          /* кнопка в центре ячейки */
+}
+
+/* Заголовок "Телефон" – слева */
+.taxi-list .list-header .col-phone {
+  text-align: left;
+}
+
+.taxi-list .btn-phone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background-color: #FFD700;
+  color: #000000;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+  width: 200px;
+  box-sizing: border-box;
+}
+
+.taxi-list .btn-phone:hover {
+  background-color: #F59A2F;
+  color: #000000;
+}
+
+/* ===== Подвал ===== */
+.site-footer {
+  background-color: #000000;
+  border-top: 1px solid #222;
+  padding: 48px 0 32px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  color: #9E9E9E;
+  font-weight: 500;
+}
+
+.footer-links a:hover {
+  color: #FFD700;
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: #6C6C6C;
+}
+
+/* ===== Детальная страница такси ===== */
+.taxi-detail {
+  background: #1A1A1A;
+  border-radius: 24px;
+  padding: 32px;
+  margin-top: 20px;
+}
+
+.taxi-detail h1 {
+  font-size: 2rem;
+  color: #FFD700;
+  margin-bottom: 24px;
+}
+
+.taxi-detail .detail-info p {
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+}
+
+.taxi-detail .btn-phone {
+  margin-top: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #FFD700;
+  color: #000000;
+  font-weight: 700;
+  padding: 14px 24px;
+  border-radius: 60px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.taxi-detail .btn-phone:hover {
+  background-color: #F59A2F;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 24px;
+  color: #FFD700;
+  font-weight: 500;
+}
+
+/* ===== Статьи ===== */
+.articles-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.article-card {
+  background: #1A1A1A;
+  border-radius: 24px;
+  padding: 24px;
+  border: 1px solid #2C2C2C;
+}
+
+.article-card h2 {
+  font-size: 1.3rem;
+}
+
+.article-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 12px;
+}
+
+.article-full {
+  background: #1A1A1A;
+  border-radius: 24px;
+  padding: 32px;
+  margin-top: 24px;
+}
+
+.article-full img {
+  max-width: 100%;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+/* ===== "О проекте" и "Контакты" ===== */
+.content-block {
+  background: #1A1A1A;
+  border-radius: 24px;
+  padding: 32px;
+  margin-top: 24px;
+  font-size: 1.1rem;
+}
+
+.content-block a {
+  color: #FFD700;
+}
+
+/* ===== Адаптив ===== */
+@media (max-width: 768px) {
+  .taxi-list .list-header {
+    display: none;
+  }
+
+  .taxi-list .list-row {
+    flex-wrap: wrap;
+    gap: 12px;                 /* отступы между всеми элементами */
+    padding: 16px 0;
+  }
+
+  .taxi-list .col-name {
+    flex: 100%;
+    margin-bottom: 6px;
+    font-size: 1.1rem;
+  }
+
+  .taxi-list .col-podacha,
+  .taxi-list .col-cost,
+  .taxi-list .col-class {
+    flex: 1 1 30%;
+    font-size: 0.85rem;
+  }
+
+  .taxi-list .col-phone {
+    flex: 100%;
+    text-align: left;
+    margin-top: 8px;
+  }
+
+  .taxi-list .btn-phone {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footer-links {
+    flex-direction: row;       /* горизонтально в одну строку */
+    gap: 20px;
+    flex-wrap: wrap;           /* если не влезут – перенесутся, но останутся в строку */
+    justify-content: center;
+  }
+
+  .footer-links a {
+    font-size: 0.9rem;
+  }
+}
+/* ===== Изображения внутри контентных блоков ===== */
+.content-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  display: block;
+}

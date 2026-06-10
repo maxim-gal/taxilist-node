@@ -1,0 +1,15 @@
+<%- include('../partials/head') %>
+
+<h1>Статьи</h1>
+<div class="articles-list">
+  <% articles.forEach(article => { %>
+    <div class="article-card">
+      <h2><a href="/article/<%= article.id %>"><%= article.title %></a></h2>
+      <% if (article.image_url) { %>
+        <img src="<%= article.image_url %>" alt="<%= article.title %>" class="article-preview">
+      <% } %>
+    </div>
+  <% }) %>
+</div>
+
+<%- include('../partials/footer') %>
